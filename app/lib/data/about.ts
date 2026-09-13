@@ -14,7 +14,7 @@ export const socialLinks = [
   },
   {
     name: "Facebook",
-    url: "https://facebook.com/paudelsabin0",
+    url: "https://facebook.com/paudelsabin10/",
     icon: "facebook",
   },
   {

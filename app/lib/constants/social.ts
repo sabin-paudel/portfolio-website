@@ -1,34 +1,34 @@
-import { Github, Linkedin, Mail, Instagram, Facebook } from 'lucide-react'
+import { Github, Linkedin, Mail, Instagram, Facebook } from "lucide-react";
 
 export const SOCIAL_LINKS = [
   {
-    name: 'GitHub',
-    href: 'https://github.com/sabin-paudel',
+    name: "GitHub",
+    href: "https://github.com/sabin-paudel",
     icon: Github,
     tooltip: "Where I store my bugs...",
   },
   {
-    name: 'LinkedIn',
-    href: 'https://linkedin.com/in/sabin-paudel-702580254',
+    name: "LinkedIn",
+    href: "https://linkedin.com/in/sabin-paudel-702580254",
     icon: Linkedin,
     tooltip: "Professional me (I promise I'm fun)",
   },
   {
-    name: 'Facebook',
-    href: 'https://facebook.com/paudelsabin0',
+    name: "Facebook",
+    href: "https://facebook.com/paudelsabin10/",
     icon: Facebook,
     tooltip: "Hot takes and cold coffee ☕",
   },
   {
-    name: 'Instagram',
-    href: 'https://instagram.com/sabinpaudel_',
+    name: "Instagram",
+    href: "https://instagram.com/sabinpaudel_",
     icon: Instagram,
     tooltip: "Hot takes and cold coffee ☕",
   },
   {
-    name: 'Email',
-    href: 'mailto:paudelsabin0@gmail.com',
+    name: "Email",
+    href: "mailto:paudelsabin0@gmail.com",
     icon: Mail,
     tooltip: "Let's build something cool together",
   },
-] as const
+] as const;
