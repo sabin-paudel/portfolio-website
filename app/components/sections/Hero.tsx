@@ -108,7 +108,7 @@ export default function Hero() {
           <div className="relative min-h-112 sm:min-h-128">
             <OptimizedImage
               src="/heroimage.png"
-              alt="Sabin Paudel portrait"
+              alt="Sabin Paudel — frontend developer specializing in React and Next.js"
               fill
               priority
               className="absolute inset-0 z-0 object-cover object-[50%_18%] "

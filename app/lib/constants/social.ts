@@ -9,7 +9,7 @@ export const SOCIAL_LINKS = [
   },
   {
     name: "LinkedIn",
-    href: "https://linkedin.com/in/sabin-paudel-702580254",
+    href: "https://www.linkedin.com/in/sabin-paudel10/",
     icon: Linkedin,
     tooltip: "Professional me (I promise I'm fun)",
   },

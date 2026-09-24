@@ -67,7 +67,31 @@ export default function About() {
   } = getAboutData();
 
   return (
-    <section id="about" className="px-4 py-16 sm:px-6 lg:py-20">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              {
+                "@type": "ListItem",
+                position: 1,
+                name: "Home",
+                item: "https://sabinpaudel.com.np",
+              },
+              {
+                "@type": "ListItem",
+                position: 2,
+                name: "About",
+                item: "https://sabinpaudel.com.np/about",
+              },
+            ],
+          }).replace(/</g, "\\u003c"),
+        }}
+      />
+      <section id="about" className="px-4 py-16 sm:px-6 lg:py-20">
       <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[340px_1fr] lg:gap-10">
         <aside className="space-y-5 lg:sticky lg:top-28 lg:h-fit">
           <motion.div
@@ -79,7 +103,7 @@ export default function About() {
             <div className="mx-auto w-full max-w-60 overflow-hidden rounded-[1.75rem] border border-white/10 bg-black/20">
               <OptimizedImage
                 src={profile.image}
-                alt={profile.name}
+                alt="Portrait photo of Sabin Paudel, frontend developer from Pokhara, Nepal"
                 width={640}
                 height={640}
                 priority
@@ -357,5 +381,6 @@ export default function About() {
         </div>
       </div>
     </section>
+    </>
   );
 }

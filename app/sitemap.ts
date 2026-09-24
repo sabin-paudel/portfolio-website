@@ -1,28 +1,32 @@
-import type { MetadataRoute } from "next";
-
-const BASE_URL = "https://sabinpaudel.com.np";
+import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  const baseUrl = "https://sabinpaudel.com.np";
+
   return [
     {
-      url: `${BASE_URL}/`,
-      changeFrequency: "weekly",
+      url: baseUrl,
+      lastModified: new Date("2026-09-24"),
+      changeFrequency: "monthly",
       priority: 1,
     },
     {
-      url: `${BASE_URL}/about`,
+      url: `${baseUrl}/about`,
+      lastModified: new Date("2026-09-24"),
       changeFrequency: "monthly",
-      priority: 0.9,
+      priority: 0.8,
     },
     {
-      url: `${BASE_URL}/projects`,
+      url: `${baseUrl}/projects`,
+      lastModified: new Date("2026-09-24"),
       changeFrequency: "weekly",
-      priority: 0.95,
+      priority: 0.8,
     },
     {
-      url: `${BASE_URL}/contact`,
-      changeFrequency: "monthly",
-      priority: 0.85,
+      url: `${baseUrl}/contact`,
+      lastModified: new Date("2026-09-24"),
+      changeFrequency: "yearly",
+      priority: 0.5,
     },
   ];
 }

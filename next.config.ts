@@ -1,19 +1,32 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  trailingSlash: false,
+  poweredByHeader: false,
   reactCompiler: true,
-  async redirects() {
+  images: {
+    formats: ["image/webp", "image/avif"],
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256],
+  },
+  async headers() {
     return [
       {
         source: "/:path*",
-        has: [
+        headers: [
           {
-            type: "host",
-            value: "www.sabinpaudel.com.np",
+            key: "X-Content-Type-Options",
+            value: "nosniff",
+          },
+          {
+            key: "X-Frame-Options",
+            value: "DENY",
+          },
+          {
+            key: "Referrer-Policy",
+            value: "strict-origin-when-cross-origin",
           },
         ],
-        destination: "https://sabinpaudel.com.np/:path*",
-        permanent: true,
       },
     ];
   },

@@ -1,68 +1,71 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import Script from "next/script";
-
 import "./globals.css";
-import SystemBar from "@/app/components/layout/SystemBar";
-import Navigation from "@/app/components/layout/Navigation";
-import Footer from "@/app/components/layout/Footer";
-import MouseGlow from "@/app/components/layout/MouseGlow";
-import ProgressBar from "@/app/components/ui/ProgressBar";
-import { cn } from "@/app/lib/utils/cn";
+import Navigation from "./components/layout/Navigation";
+import Footer from "./components/layout/Footer";
+import SystemBar from "./components/layout/SystemBar";
+import MouseGlow from "./components/layout/MouseGlow";
+import ProgressBar from "./components/ui/ProgressBar";
 
 const geistSans = Geist({
-  subsets: ["latin"],
   variable: "--font-geist-sans",
-  display: "swap",
+  subsets: ["latin"],
 });
 
 const geistMono = Geist_Mono({
-  subsets: ["latin"],
   variable: "--font-geist-mono",
-  display: "swap",
-  preload: false,
+  subsets: ["latin"],
 });
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#0a0a0c" },
+  ],
+  width: "device-width",
+  initialScale: 1,
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://sabinpaudel.com.np"),
-
   title: {
-    default: "Sabin Paudel | Frontend Developer in Pokhara, Nepal",
+    default: "Sabin Paudel — Frontend Developer | React & Next.js",
     template: "%s | Sabin Paudel",
   },
-
   description:
-    "Sabin Paudel is a frontend developer in Pokhara, Nepal, building fast, accessible web applications with React, Next.js, and TypeScript. Explore his portfolio of projects, skills, and experience.",
-
-  applicationName: "Sabin Paudel Portfolio",
-  authors: [{ name: "Sabin Paudel", url: "https://sabinpaudel.com.np" }],
-  creator: "Sabin Paudel",
-  publisher: "Sabin Paudel",
-  category: "technology",
-  referrer: "origin-when-cross-origin",
-
+    "Sabin Paudel is a frontend developer from Pokhara, Nepal, specializing in React, Next.js, and TypeScript. Explore projects, skills, and get in touch.",
   keywords: [
     "Sabin Paudel",
     "frontend developer",
-    "frontend developer Pokhara",
-    "frontend developer Nepal",
     "React developer",
     "Next.js developer",
-    "TypeScript developer",
-    "frontend engineer",
-    "web developer Nepal",
-    "React.js developer Nepal",
-    "Next.js developer Nepal",
+    "TypeScript",
+    "web development",
+    "portfolio",
+    "Pokhara Nepal",
   ],
-
-  verification: {
-    google: "E3nFzfLYn6siE0KzcOArfuiHbQsrY84dnWoNE7YmDMk",
-  },
-
+  authors: [{ name: "Sabin Paudel", url: "https://sabinpaudel.com.np" }],
+  creator: "Sabin Paudel",
   alternates: {
-    canonical: "./",
+    canonical: "https://sabinpaudel.com.np",
   },
-
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://sabinpaudel.com.np",
+    siteName: "Sabin Paudel",
+    title: "Sabin Paudel — Frontend Developer | React & Next.js",
+    description:
+      "Frontend developer from Pokhara, Nepal. Building fast, accessible web apps with React, Next.js, and TypeScript.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: "@paudelsabin",
+    creator: "@paudelsabin",
+    title: "Sabin Paudel — Frontend Developer | React & Next.js",
+    description:
+      "Frontend developer from Pokhara, Nepal. Building fast, accessible web apps with React, Next.js, and TypeScript.",
+  },
   robots: {
     index: true,
     follow: true,
@@ -74,65 +77,42 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-
-  openGraph: {
-    type: "website",
-    locale: "en_US",
-    url: "./",
-    title: "Sabin Paudel | Frontend Developer in Pokhara, Nepal",
-    description:
-      "Sabin Paudel is a frontend developer in Pokhara, Nepal, building fast, accessible web applications with React, Next.js, and TypeScript.",
-    siteName: "Sabin Paudel Portfolio",
-    images: [
-      {
-        url: "/opengraph-image",
-        width: 1200,
-        height: 630,
-        alt: "Sabin Paudel - Frontend Developer in Pokhara, Nepal",
-      },
-    ],
-  },
-
-  twitter: {
-    card: "summary_large_image",
-    title: "Sabin Paudel | Frontend Developer in Pokhara, Nepal",
-    description:
-      "Sabin Paudel is a frontend developer in Pokhara, Nepal, building fast, accessible web applications with React, Next.js, and TypeScript.",
-    images: ["/opengraph-image"],
-  },
 };
 
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   return (
-    <html
-      lang="en"
-      className={cn(
-        geistSans.variable,
-        geistMono.variable,
-        geistSans.className,
-      )}
-    >
-      <body className="antialiased app-bg text-foreground overflow-x-hidden transition-colors duration-300">
-        <div aria-hidden="true" className="lamp-beam" />
-
-        <MouseGlow />
-
-        <SystemBar />
-        <ProgressBar />
-        <Navigation />
-
-        <main className="relative z-10  pt-0 ">{children}</main>
-        <Footer />
-
-        <Script
-          defer
-          src="https://cloud.umami.is/script.js"
-          data-website-id="58e33305-1dd3-49a3-81a4-bc7be9f7a634"
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  var theme = localStorage.getItem('theme');
+                  document.documentElement.classList.add('dark');
+                  if (theme === 'light') {
+                    document.documentElement.classList.add('lamp-on');
+                  }
+                } catch (e) {}
+              })();
+            `,
+          }}
         />
+      </head>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
+        <div aria-hidden="true" className="lamp-beam" />
+        <ProgressBar />
+        <SystemBar />
+        <MouseGlow />
+        <Navigation />
+        <main>{children}</main>
+        <Footer />
       </body>
     </html>
   );

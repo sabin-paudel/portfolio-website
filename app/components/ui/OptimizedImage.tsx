@@ -9,6 +9,7 @@ interface OptimizedImageProps {
   fill?: boolean;
   className?: string;
   priority?: boolean;
+  sizes?: string;
 }
 
 export default function OptimizedImage({
@@ -19,6 +20,7 @@ export default function OptimizedImage({
   fill,
   className,
   priority = false,
+  sizes = "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw",
 }: OptimizedImageProps) {
   return (
     <div className={cn("relative overflow-hidden", fill && "h-full w-full", className)}>
@@ -30,6 +32,8 @@ export default function OptimizedImage({
         fill={fill}
         className={cn("object-cover", fill && "h-full w-full", className)}
         priority={priority}
+        loading={priority ? "eager" : "lazy"}
+        sizes={fill ? sizes : undefined}
       />
     </div>
   );

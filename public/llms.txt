@@ -1,0 +1,32 @@
+# Sabin Paudel
+
+> Frontend developer from Pokhara, Nepal, specializing in React, Next.js, and TypeScript.
+
+## About
+
+Sabin Paudel is a frontend developer based in Pokhara, Nepal. He builds fast, accessible, and modern web applications using React, Next.js, TypeScript, and Tailwind CSS. He currently works as a Frontend Developer at YHHITS, contributing to production React and Next.js applications.
+
+## Skills
+
+- Frontend: React, Next.js, TypeScript, Tailwind CSS
+- Backend: Node.js, Express, MongoDB
+- Tools: Git, Figma, Postman, Linux
+
+## Projects
+
+- [SlangHub](https://slanghub.vercel.app/): A community-driven Gen Z slang dictionary built with Next.js, TypeScript, Supabase, and Tailwind CSS.
+- [CivicEye](https://civic-eye-frontend-liart.vercel.app): A location-aware civic issue reporting platform built with React, TypeScript, Maps, and Geolocation.
+- [Zone XVI Community Website](https://zonexvi.vercel.app): A community website for event discovery and club profiles, built with React.
+- [Secure Document Signing Platform](https://sign.sabinpaudel.com.np): A digital signature platform with verification and audit trails, built with React, Node.js, and MongoDB.
+
+## Links
+
+- Website: https://sabinpaudel.com.np
+- GitHub: https://github.com/sabin-paudel
+- LinkedIn: https://www.linkedin.com/in/sabin-paudel10/
+- Email: paudelsabin0@gmail.com
+
+## Contact
+
+For freelance frontend work, React/Next.js projects, or collaborations, reach out via email at paudelsabin0@gmail.com.
+
