@@ -61,12 +61,12 @@ const projects: Project[] = [
     id: "5",
     title: "Playlist Experiments",
     description:
-      "Two small music web experiments I built for fun — Teejaayo for Nepali Teej songs and Driver Dai Ko Playlist for Nepali songs with a bus-ride vibe.",
+      "Small music web experiments built for fun, exploring themed interfaces, playlist browsing and YouTube playback.",
     longDescription:
-      "A collection of small web experiments built around Nepali music and listening experiences. Features YouTube-based music playback, playlist browsing, shuffle/random mode, and responsive mobile-friendly controls.",
-    role: "Fun Project",
+      "Small music web experiments built for fun, exploring themed interfaces, playlist browsing and YouTube playback.",
+    role: "Personal Experiment",
     image: "/projects/teejaayo.png",
-    tags: ["Next.js", "React", "TypeScript", "YouTube integration", "Vercel"],
+    tags: ["Next.js", "React", "TypeScript", "YouTube", "Vercel"],
     liveUrl: "https://teejaayo.vercel.app",
     githubUrl: null,
     featured: false,

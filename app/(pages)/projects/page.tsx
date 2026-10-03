@@ -1,23 +1,23 @@
-"use client";
-
-import Link from "next/link";
-import { motion } from "framer-motion";
-import { ArrowUpRight, Github } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 import { getProjects } from "@/app/types/project";
 import OptimizedImage from "@/app/components/ui/OptimizedImage";
 
 export default function Projects() {
-  const projects = getProjects();
+  const allProjects = getProjects();
   const siteUrl = "https://sabinpaudel.com.np";
+
+  // Main projects (01 - 04) and Experiments (05)
+  const mainProjects = allProjects.filter((p) => p.id !== "5");
+  const experimentProject = allProjects.find((p) => p.id === "5");
 
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "ItemList",
     name: "Sabin Paudel Projects",
     description:
-      "Selected frontend projects by Sabin Paudel, built with React, Next.js, and TypeScript.",
-    itemListElement: projects.map((project, index) => ({
+      "Selected web applications, platforms, and frontend experiments built by Sabin Paudel.",
+    itemListElement: allProjects.map((project, index) => ({
       "@type": "ListItem",
       position: index + 1,
       item: {
@@ -32,10 +32,7 @@ export default function Projects() {
   };
 
   return (
-    <section
-      id="projects"
-      className="relative overflow-hidden px-4 py-16 sm:px-6 lg:py-20"
-    >
+    <div className="relative min-h-screen px-4 pt-28 pb-20 sm:px-6 lg:px-8">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -66,190 +63,215 @@ export default function Projects() {
         }}
       />
 
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:72px_72px] opacity-40 [mask-image:radial-gradient(ellipse_75%_45%_at_50%_0%,black,transparent)]"
-      />
-
-      <div className="mx-auto max-w-7xl space-y-10 lg:space-y-12">
-        <header className="grid items-end gap-10 lg:grid-cols-[3fr_2fr] lg:gap-14">
-          <div className="max-w-3xl space-y-5">
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="section-kicker w-fit"
-            >
-              <span>Selected work</span>
-            </motion.div>
-
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="text-[clamp(1.9rem,5vw,4rem)] font-semibold leading-[1.04] tracking-tight text-white"
-            >
-              <span className="block">Selected projects,</span>
-              <span className="block">built to solve</span>
-              <span className="block text-gradient">real problems.</span>
-            </motion.h1>
-
-            <motion.p
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.1 }}
-              className="max-w-2xl text-pretty text-base leading-7 text-white/72 sm:text-lg"
-            >
-              A selection of React and Next.js projects spanning e-commerce,
-              community platforms, and modern web applications.
-            </motion.p>
-          </div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.5 }}
-            className="w-full"
-          >
-            <div className="border border-white/10">
-              <div className="flex items-center justify-between border-b border-white/10 px-5 py-4">
-                <span className="text-xs uppercase tracking-[0.24em] text-white/45">
-                  Work index
-                </span>
-                <span className="text-[11px] uppercase tracking-[0.2em] text-white/35">
-                  {new Date().getFullYear()}
-                </span>
-              </div>
-
-              <div className="divide-y divide-white/[0.07]">
-                <div className="flex items-baseline justify-between gap-4 px-5 py-4">
-                  <p className="text-3xl font-semibold tracking-tight text-white tabular-nums">
-                    {String(projects.length).padStart(2, "0")}
-                  </p>
-                  <p className="text-[11px] uppercase tracking-[0.2em] text-white/45">
-                    Selected projects
-                  </p>
-                </div>
-                <div className="flex items-baseline justify-between gap-4 px-5 py-4">
-                  <p className="text-base font-semibold text-white">Frontend</p>
-                  <p className="text-[11px] uppercase tracking-[0.2em] text-white/45">
-                    Primary focus
-                  </p>
-                </div>
-                <div className="flex items-baseline justify-between gap-4 px-5 py-4">
-                  <p className="text-base font-semibold text-white">
-                    React · Next.js
-                  </p>
-                  <p className="text-[11px] uppercase tracking-[0.2em] text-white/45">
-                    Main tools
-                  </p>
-                </div>
-              </div>
-
-              <p className="border-t border-white/10 px-5 py-4 text-sm leading-6 text-white/68">
-                From product interfaces to practical web applications.
-              </p>
-            </div>
-          </motion.div>
+      <main className="mx-auto max-w-6xl space-y-20 lg:space-y-28">
+        {/* Header Section */}
+        <header className="max-w-2xl space-y-4">
+          <p className="text-xs font-mono uppercase tracking-[0.24em] text-zinc-400">
+            Work
+          </p>
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-zinc-100">
+            Things I&rsquo;ve built.
+          </h1>
+          <p className="text-base text-zinc-400 leading-relaxed">
+            A selection of web applications, platforms, and digital tools
+            focused on performance, clean interfaces, and practical utility.
+          </p>
         </header>
 
-        <div className="grid gap-6 lg:grid-cols-2">
-          {projects.map((project, index) => (
-            <motion.article
-              key={project.id}
-              initial={{ opacity: 0, y: 18 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.5, delay: (index % 2) * 0.08 }}
-              className="flex flex-col overflow-hidden rounded-[2rem] bg-white/[0.03] transition-transform duration-300 sm:shadow-[0_24px_70px_rgba(0,0,0,0.24)] sm:hover:-translate-y-1"
-            >
-              <div className="relative aspect-16/10 overflow-hidden bg-white/3">
-                <OptimizedImage
-                  src={project.image}
-                  alt={project.title}
-                  fill
-                  className="opacity-70"
-                />
-              </div>
+        {/* Main Projects Showcase */}
+        <section aria-label="Main Projects" className="space-y-12">
+          <div className="grid gap-x-10 gap-y-16 lg:grid-cols-2 lg:gap-y-20">
+            {mainProjects.map((project, index) => {
+              const projectNumber = String(index + 1).padStart(2, "0");
 
-              <div className="flex flex-1 flex-col gap-4 p-6 sm:p-8">
-                <div className="space-y-2">
-                  <p className="text-xs uppercase tracking-[0.22em] text-white/45">
-                    {project.role}
-                  </p>
-                  <h2 className="text-2xl font-semibold tracking-tight text-white">
-                    {project.title}
-                  </h2>
-                </div>
+              return (
+                <article
+                  key={project.id}
+                  className="group flex flex-col space-y-5"
+                >
+                  {/* Project Image */}
+                  <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl border border-zinc-800 bg-zinc-950">
+                    <OptimizedImage
+                      src={project.image}
+                      alt={project.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 560px"
+                      className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.015]"
+                    />
+                  </div>
 
-                <p className="max-w-2xl text-sm leading-7 text-white/70">
-                  {project.longDescription}
-                </p>
+                  {/* Project Details */}
+                  <div className="flex flex-1 flex-col space-y-3">
+                    {/* Number and Role */}
+                    <div className="flex items-center justify-between gap-4 font-mono text-xs text-zinc-400">
+                      <span className="tabular-nums text-zinc-300 font-medium">
+                        {projectNumber}
+                      </span>
+                      <span className="uppercase tracking-wider">
+                        {project.role}
+                      </span>
+                    </div>
 
-                <div className="flex flex-wrap gap-2">
-                  {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="rounded-full bg-white/[0.055] px-3 py-1 text-xs font-medium text-white/70"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
+                    {/* Title */}
+                    <h2 className="text-xl sm:text-2xl font-medium tracking-tight text-zinc-100">
+                      {project.liveUrl ? (
+                        <a
+                          href={project.liveUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 hover:text-white transition-colors"
+                        >
+                          <span>{project.title}</span>
+                          <ArrowUpRight className="h-4 w-4 text-zinc-400 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-zinc-200" />
+                        </a>
+                      ) : (
+                        <span>{project.title}</span>
+                      )}
+                    </h2>
 
-                <div className="mt-auto flex flex-wrap items-center gap-3 pt-2">
-                  {project.liveUrl && (
-                    <Link
-                      href={project.liveUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2.5 text-sm font-semibold text-black transition-transform hover:-translate-y-0.5"
-                    >
-                      Live demo
-                      <ArrowUpRight className="h-4 w-4" />
-                    </Link>
-                  )}
-                  {project.githubUrl && (
-                    <Link
-                      href={project.githubUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/[0.04] px-4 py-2.5 text-sm font-semibold text-white/82 transition-colors hover:bg-white/[0.06]"
-                    >
-                      <Github className="h-4 w-4" />
-                      Source
-                    </Link>
-                  )}
-                </div>
-              </div>
-            </motion.article>
-          ))}
-        </div>
+                    {/* Short Description */}
+                    <p className="text-sm text-zinc-400 leading-relaxed">
+                      {project.description}
+                    </p>
 
-        <div className="flex flex-col items-start justify-between gap-4 rounded-[2rem] border border-white/10 bg-white/[0.03] p-5 sm:flex-row sm:items-center sm:p-6">
-          <div>
-            <p className="text-xs uppercase tracking-[0.24em] text-white/45">
-              {projects.length} projects in the portfolio
-            </p>
-            <p className="mt-3 max-w-2xl text-sm leading-7 text-white/68">
-              More experiments, prototypes, and older work live on GitHub.
-            </p>
+                    {/* Technologies - Visually Secondary */}
+                    <p className="pt-1 font-mono text-xs text-zinc-400">
+                      {project.tags.join(" · ")}
+                    </p>
+
+                    {/* Actions */}
+                    <div className="mt-auto flex items-center gap-5 pt-3">
+                      {project.liveUrl && (
+                        <a
+                          href={project.liveUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1 text-xs font-medium text-zinc-300 hover:text-white transition-colors"
+                        >
+                          <span>Live demo</span>
+                          <ArrowUpRight className="h-3.5 w-3.5" />
+                        </a>
+                      )}
+                      {project.githubUrl && (
+                        <a
+                          href={project.githubUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1 text-xs font-medium text-zinc-400 hover:text-zinc-200 transition-colors"
+                        >
+                          <span>Source code</span>
+                          <ArrowUpRight className="h-3.5 w-3.5" />
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                </article>
+              );
+            })}
           </div>
+        </section>
 
-          <Link
+        {/* Experiments Section */}
+        {experimentProject && (
+          <section
+            aria-label="Experiments"
+            className="pt-16 sm:pt-20 border-t border-zinc-900 space-y-12"
+          >
+            {/* Experiments Header */}
+            <div className="max-w-2xl space-y-3">
+              <div className="flex items-center gap-3">
+                <span className="font-mono text-xs text-zinc-300 tabular-nums font-medium">
+                  05
+                </span>
+                <span className="font-mono text-xs uppercase tracking-[0.24em] text-zinc-400">
+                  Experiments
+                </span>
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-zinc-100">
+                {experimentProject.title}
+              </h2>
+              <p className="text-sm sm:text-base text-zinc-400 leading-relaxed">
+                {experimentProject.description}
+              </p>
+              <p className="font-mono text-xs text-zinc-400">
+                {experimentProject.tags.join(" · ")}
+              </p>
+            </div>
+
+            {/* Individual Experiment Showcases */}
+            {experimentProject.experiments && (
+              <div className="grid gap-x-10 gap-y-12 lg:grid-cols-2">
+                {experimentProject.experiments.map((sub, subIndex) => (
+                  <article
+                    key={sub.title}
+                    className="group flex flex-col space-y-4"
+                  >
+                    {/* Experiment Image */}
+                    <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl border border-zinc-800 bg-zinc-950">
+                      <OptimizedImage
+                        src={sub.image || experimentProject.image}
+                        alt={sub.title}
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 560px"
+                        className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.015]"
+                      />
+                    </div>
+
+                    {/* Experiment Info */}
+                    <div className="flex flex-1 flex-col space-y-2">
+                      <div className="font-mono text-xs text-zinc-400">
+                        05.{subIndex + 1}
+                      </div>
+
+                      <h3 className="text-lg sm:text-xl font-medium tracking-tight text-zinc-100">
+                        <a
+                          href={sub.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 hover:text-white transition-colors"
+                        >
+                          <span>{sub.title}</span>
+                          <ArrowUpRight className="h-4 w-4 text-zinc-400 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-zinc-200" />
+                        </a>
+                      </h3>
+
+                      <p className="text-sm text-zinc-400 leading-relaxed">
+                        {sub.description}
+                      </p>
+
+                      <div className="pt-2">
+                        <a
+                          href={sub.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1 text-xs font-medium text-zinc-300 hover:text-white transition-colors"
+                        >
+                          <span>Visit experiment</span>
+                          <ArrowUpRight className="h-3.5 w-3.5" />
+                        </a>
+                      </div>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            )}
+          </section>
+        )}
+
+        {/* Visually Secondary GitHub Footer Line */}
+        <footer className="pt-12 pb-6 border-t border-zinc-900 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 text-xs text-zinc-400">
+          <p>More prototypes, experiments, and older code live on GitHub.</p>
+          <a
             href="https://github.com/sabin-paudel"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/[0.04] px-5 py-3 text-sm font-semibold text-white/84 transition-colors hover:bg-white/[0.07]"
+            className="inline-flex items-center gap-1.5 text-zinc-300 hover:text-white transition-colors"
           >
-            Explore more on GitHub
-            <ArrowUpRight className="h-4 w-4" />
-          </Link>
-        </div>
-      </div>
-    </section>
+            <span>github.com/sabin-paudel</span>
+            <ArrowUpRight className="h-3.5 w-3.5" />
+          </a>
+        </footer>
+      </main>
+    </div>
   );
 }
