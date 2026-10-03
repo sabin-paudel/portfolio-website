@@ -1,3 +1,10 @@
+export interface ProjectExperiment {
+  title: string;
+  url: string;
+  description: string;
+  image?: string;
+}
+
 export interface Project {
   id: string;
   title: string;
@@ -9,6 +16,7 @@ export interface Project {
   liveUrl?: string | null;
   githubUrl?: string | null;
   featured: boolean;
+  experiments?: ProjectExperiment[];
 }
 
 export interface Skill {

@@ -57,6 +57,36 @@ const projects: Project[] = [
     githubUrl: "https://github.com/sabin-paudel/CivicEye-frontend",
     featured: true,
   },
+  {
+    id: "5",
+    title: "Playlist Experiments",
+    description:
+      "Two small music web experiments I built for fun — Teejaayo for Nepali Teej songs and Driver Dai Ko Playlist for Nepali songs with a bus-ride vibe.",
+    longDescription:
+      "A collection of small web experiments built around Nepali music and listening experiences. Features YouTube-based music playback, playlist browsing, shuffle/random mode, and responsive mobile-friendly controls.",
+    role: "Fun Project",
+    image: "/projects/teejaayo.png",
+    tags: ["Next.js", "React", "TypeScript", "YouTube integration", "Vercel"],
+    liveUrl: "https://teejaayo.vercel.app",
+    githubUrl: null,
+    featured: false,
+    experiments: [
+      {
+        title: "Teejaayo",
+        url: "https://teejaayo.vercel.app",
+        description:
+          "A Nepali Teej music playlist website featuring old and new Teej songs.",
+        image: "/projects/teejaayo.png",
+      },
+      {
+        title: "Driver Dai Ko Playlist",
+        url: "https://driverdaikoplaylist.vercel.app",
+        description:
+          "A fun Nepali music playlist experience inspired by long bus rides and Driver Dai vibes.",
+        image: "/projects/driverdai.png",
+      },
+    ],
+  },
 ];
 
 export function getProjects() {

@@ -18,6 +18,7 @@ Sabin Paudel is a frontend developer based in Pokhara, Nepal. He builds fast, ac
 - [CivicEye](https://civic-eye-frontend-liart.vercel.app): A location-aware civic issue reporting platform built with React, TypeScript, Maps, and Geolocation.
 - [Zone XVI Community Website](https://zonexvi.vercel.app): A community website for event discovery and club profiles, built with React.
 - [Secure Document Signing Platform](https://sign.sabinpaudel.com.np): A digital signature platform with verification and audit trails, built with React, Node.js, and MongoDB.
+- [Playlist Experiments](https://teejaayo.vercel.app): Creative music web experiments around Nepali music, including Teejaayo (Nepali Teej songs at https://teejaayo.vercel.app) and Driver Dai Ko Playlist (bus-ride music vibes at https://driverdaikoplaylist.vercel.app).
 
 ## Links
 
