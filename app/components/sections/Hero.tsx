@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, ChevronRight } from "lucide-react";
 
 import OptimizedImage from "../ui/OptimizedImage";
+import { getProjects } from "@/app/types/project";
 
 export default function Hero() {
   return (
@@ -46,10 +47,10 @@ export default function Hero() {
           >
             <div>
               <p className="text-2xl font-semibold tracking-tight text-white">
-                4
+                {getProjects().length}+
               </p>
               <p className="mt-1 text-[11px] uppercase tracking-[0.2em] text-white/45">
-                Projects in portfolio
+                Projects
               </p>
             </div>
 
@@ -118,8 +119,6 @@ export default function Hero() {
               aria-hidden="true"
               className="absolute inset-0 z-10 bg-[linear-gradient(180deg,rgba(5,5,5,0.12)_0%,rgba(5,5,5,0.24)_34%,rgba(5,5,5,0.72)_100%)]"
             />
-
-            
           </div>
 
           <div className="surface m-4 rounded-2xl p-2 sm:m-3 sm:p-3">

@@ -49,7 +49,7 @@ const workExperience = [
   {
     title: "Frontend Developer",
     company: "YHHITS",
-    period: "May 24, 2026 — Present",
+    period: "May 24, 2026 — October 18, 2026",
     description:
       "Building and maintaining production-ready frontend experiences with React, reusable UI systems, and performance-focused improvements.",
   },
@@ -59,7 +59,7 @@ const studies = [
   {
     title: "Bachelor in CSIT",
     school: "Prithivi Narayan Campus",
-    info: "7th semester",
+    info: "8th semester",
   },
   {
     title: "+2",
