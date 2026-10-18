@@ -42,14 +42,14 @@ const workExperience = [
   {
     title: "Frontend Intern",
     company: "YHHITS",
-    period: "2026 — May 24, 2026",
+    period: "Feb 10, 2026 — May 24, 2026",
     description:
       "Contributed to real-world React applications while developing practical experience in reusable UI, responsive design, and team workflows.",
   },
   {
     title: "Frontend Developer",
     company: "YHHITS",
-    period: "May 24, 2026 — October 18, 2026",
+    period: "May 24, 2026 — Present",
     description:
       "Building and maintaining production-ready frontend experiences with React, reusable UI systems, and performance-focused improvements.",
   },
